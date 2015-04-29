@@ -2,9 +2,7 @@ package com.thoughtworks.collection;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
@@ -20,7 +18,7 @@ public class InverseReduceTest {
 
         InverseReduce inverseReduce = new InverseReduce(random);
 
-        Integer[] result = new Integer[]{9,7,5,3,1};
+        Integer[] result = new Integer[]{7,5,3,1};
         List<Integer> resultList = Arrays.asList(result);
 
         assertThat(inverseReduce.divideToSmaller(9)).isEqualTo(resultList);
