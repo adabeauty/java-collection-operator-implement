@@ -2,9 +2,6 @@ package com.thoughtworks.collection;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-/**
- * Created by hgwang on 4/27/15.
- */
 public class Flaten {
 
     Integer[][] array;

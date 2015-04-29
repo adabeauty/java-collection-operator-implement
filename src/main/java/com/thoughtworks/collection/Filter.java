@@ -70,11 +70,6 @@ public class Filter {
     }
 
     public Integer[][] getDividedArray() {
-
-//        for(int i=0; i<array.size(); i++){
-//            for()
-//        }
-//        return null;
         throw new NotImplementedException();
     }
 
