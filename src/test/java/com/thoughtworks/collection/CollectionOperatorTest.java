@@ -2,6 +2,9 @@ package com.thoughtworks.collection;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class CollectionOperatorTest {
@@ -13,14 +16,13 @@ public class CollectionOperatorTest {
 
         CollectionOperator collectionOperator = new CollectionOperator();
 
-        int[] result = new int[]{1,2,3,4,5};
-        assertThat(collectionOperator.getListByInterval(left, right)).isEqualTo(result);
+        Integer[] result = new Integer[]{1,2,3,4,5};
+        List<Integer> resultList = Arrays.asList(result);
+        assertThat(collectionOperator.getListByInterval(left, right)).isEqualTo(resultList);
 
-        int[] inverseResult = new int[]{5,4,3,2,1};
-        assertThat(collectionOperator.getListByInterval(right, left)).isEqualTo(inverseResult);
-
-        assertThat(collectionOperator.getListByInterval(1, 1).length).isEqualTo(1);
-        assertThat(collectionOperator.getListByInterval(1, 1)[0]).isEqualTo(1);
+        Integer[] inverseResult = new Integer[]{5,4,3,2,1};
+        List<Integer> inverseResultList = Arrays.asList(inverseResult);
+        assertThat(collectionOperator.getListByInterval(right, left)).isEqualTo(inverseResultList);
     }
 
     @Test
@@ -30,15 +32,13 @@ public class CollectionOperatorTest {
 
         CollectionOperator collectionOperator = new CollectionOperator();
 
-        int[] result = new int[]{2,4,6,8,10};
-        assertThat(collectionOperator.getListByTwoIntervals(left, right)).isEqualTo(result);
+        Integer[] result = new Integer[]{2,4,6,8,10};
+        List<Integer> resultList = Arrays.asList(result);
+        assertThat(collectionOperator.getEvenListByIntervals(left, right)).isEqualTo(resultList);
 
-        int[] inverseResult = new int[]{10,8,6,4,2};
-        assertThat(collectionOperator.getListByInterval(right, left)).isEqualTo(inverseResult);
-
-        assertThat(collectionOperator.getListByInterval(1,1).length).isEqualTo(0);
-
-        assertThat(collectionOperator.getListByInterval(6,6)[0]).isEqualTo(6);
+        Integer[] inverseResult = new Integer[]{10,8,6,4,2};
+        List<Integer> inverseResultList = Arrays.asList(inverseResult);
+        assertThat(collectionOperator.getEvenListByIntervals(right, left)).isEqualTo(inverseResultList);
     }
 
     @Test
@@ -49,7 +49,8 @@ public class CollectionOperatorTest {
         CollectionOperator collectionOperator = new CollectionOperator();
 
         String[] result = new String[]{"a", "b", "c", "d", "e"};
-        assertThat(collectionOperator.getLetterListByInterval(left, right)).isEqualTo(result);
+        List<String> resultList = Arrays.asList(result);
+        assertThat(collectionOperator.getLetterListByInterval(left, right)).isEqualTo(resultList);
     }
 
     @Test
@@ -59,20 +60,22 @@ public class CollectionOperatorTest {
 
         CollectionOperator collectionOperator = new CollectionOperator();
 
-        assertThat(collectionOperator.getLoopLetterListByInterval(left, right).length).isEqualTo(34);
-        assertThat(collectionOperator.getLoopLetterListByInterval(left, right)[6]).isEqualTo("z");
-        assertThat(collectionOperator.getLoopLetterListByInterval(left, right)[8]).isEqualTo("ab");
-        assertThat(collectionOperator.getLoopLetterListByInterval(left, right)[33]).isEqualTo("ba");
+        assertThat(collectionOperator.getLoopLetterListByInterval(left, right).size()).isEqualTo(34);
+        assertThat(collectionOperator.getLoopLetterListByInterval(left, right).get(6)).isEqualTo("z");
+        assertThat(collectionOperator.getLoopLetterListByInterval(left, right).get(8)).isEqualTo("ab");
+        assertThat(collectionOperator.getLoopLetterListByInterval(left, right).get(33)).isEqualTo("ba");
     }
 
     @Test
     public void should_pop_even_elements(){
         int[] array = new int[]{1,2,3,4,5};
-        int[] result  = new int[] {2,4};
+
+        Integer[] result  = new Integer[] {2,4};
+        List<Integer> resultList = Arrays.asList(result);
 
         CollectionOperator collectionOperator = new CollectionOperator();
 
-        assertThat(collectionOperator.popEvenElments(array)).isEqualTo(result);
+        assertThat(collectionOperator.popEvenElments(array)).isEqualTo(resultList);
     }
 
     @Test
@@ -88,20 +91,24 @@ public class CollectionOperatorTest {
     public void should_pop_common_elements(){
         int[] firstArray = new int[]{1,2,4,6,10};
         int[] secondArray = new int[]{3,2,6,10,8};
-        int[] result = new int[]{2,6,10};
+
+        Integer[] result = new Integer[]{2,6,10};
+        List<Integer> resultList = Arrays.asList(result);
 
         CollectionOperator collectionOperator = new CollectionOperator();
-        assertThat(collectionOperator.popCommonElement(firstArray, secondArray)).isEqualTo(result);
+        assertThat(collectionOperator.popCommonElement(firstArray, secondArray)).isEqualTo(resultList);
     }
 
     @Test
     public void should_add_uncommon_elements_to_first_array(){
-        int[] firstArray = new int[]{1,2,4,6,10};
-        int[] secondArray = new int[]{3,2,6,10,8};
-        int[] result = new int[]{1,2,4,6,10,3,8};
+        Integer[] firstArray = new Integer[]{1,2,4,6,10};
+        Integer[] secondArray = new Integer[]{3,2,6,10,8};
+
+        Integer[] result = new Integer[]{1,2,4,6,10,3,8};
+        List<Integer> resultList = Arrays.asList(result);
 
         CollectionOperator collectionOperator = new CollectionOperator();
-        assertThat(collectionOperator.addUncommonElement(firstArray, secondArray).length).isEqualTo(7);
-        assertThat(collectionOperator.addUncommonElement(firstArray, secondArray)).isEqualTo(result);
+        assertThat(collectionOperator.addUncommonElement(firstArray, secondArray).size()).isEqualTo(7);
+        assertThat(collectionOperator.addUncommonElement(firstArray, secondArray)).isEqualTo(resultList);
     }
 }
