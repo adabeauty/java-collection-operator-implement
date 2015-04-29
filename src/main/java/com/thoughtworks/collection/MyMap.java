@@ -1,12 +1,7 @@
 package com.thoughtworks.collection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
-/**
- * Created by hgwang on 4/27/15.
- */
 public class MyMap {
 
     private List<Integer> array;
