@@ -2,7 +2,8 @@ package com.thoughtworks.collection;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
@@ -16,6 +17,7 @@ public class AddTest {
 
         Add add = new Add();
         assertThat(add.getSumOfEvens(leftBorder, rightBorder)).isEqualTo(30);
+        assertThat(add.getSumOfEvens(rightBorder, leftBorder)).isEqualTo(30);
     }
 
     @Test
@@ -25,6 +27,7 @@ public class AddTest {
 
         Add add = new Add();
         assertThat(add.getSumOfOdds(leftBorder, rightBorder)).isEqualTo(25);
+        assertThat(add.getSumOfOdds(rightBorder, leftBorder)).isEqualTo(25);
     }
 
     @Test
@@ -42,12 +45,9 @@ public class AddTest {
         Integer[] array = new Integer[]{1,5,7,11,35,67};
         List<Integer> arrayList = Arrays.asList(array);
 
-        Integer[] result = new Integer[]{5,17,24,35,117,203};
-        List<Integer> resultList = Arrays.asList(result);
-
         Add add = new Add();
 
-        assertThat(add.getTipleAndAddTwo(arrayList)).isEqualTo(resultList);
+        assertThat(add.getSumTripleAndAddTwo(arrayList)).isEqualTo(390);
     }
 
     @Test
@@ -55,22 +55,21 @@ public class AddTest {
         Integer[] array = new Integer[]{1,5,7,12,11,35,54,67,70};
         List<Integer> arrayList = Arrays.asList(array);
 
-        Integer[] result = new Integer[]{5,17,24,12,35,117,54,203,70};
+        Integer[] result = new Integer[]{5,17,23,12,35,107,54,203,70};
         List<Integer> resultList = Arrays.asList(result);
 
         Add add = new Add();
 
-        assertThat(add.getTipleOfOddAndAddTwo(arrayList)).isEqualTo(resultList);
+        assertThat(add.getTripleOfOddAndAddTwo(arrayList)).isEqualTo(resultList);
     }
 
     @Test
     public void should_get_sum_of_processed_odd(){
         Integer[] array = new Integer[]{1,5,7,12,11,35,54,67,70};
         List<Integer> arrayList = Arrays.asList(array);
-
         Add add = new Add();
 
-        assertThat(add.getSumOfProcessedOdds(arrayList)).isEqualTo(537);
+        assertThat(add.getSumOfProcessedOdds(arrayList)).isEqualTo(408);
     }
 
     @Test
@@ -78,7 +77,7 @@ public class AddTest {
         Integer[] array = new Integer[]{1,2,3,4,5,6,7,8,9,10};
         List<Integer> arrayList = Arrays.asList(array);
 
-        Object[] result = new Object[]{1,"b",3,"d",4,"f",5,"h",7,"j",9,"l"};
+        Object[] result = new Object[]{1,"b",3,"d",5,"f",7,"h",9,"j"};
         List<Object> resultObject = Arrays.asList(result);
 
         Add add = new Add();
@@ -160,7 +159,7 @@ public class AddTest {
         Integer[] array = new Integer[] {1,12,3,24,5,16,7,118,6};
         List<Integer> arrayList = Arrays.asList(array);
 
-        assertThat(add.mapEvens(arrayList).get(1)).isEqualTo(1);
+        assertThat(add.mapEvens(arrayList).get(1)).isEqualTo(2);
         assertThat(add.mapEvens(arrayList).get(2)).isEqualTo(3);
         assertThat(add.mapEvens(arrayList).get(3)).isEqualTo(1);
     }
