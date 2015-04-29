@@ -17,8 +17,10 @@ public class MyMapTest {
 
         MyMap myMap = new MyMap(list);
 
-        assertThat(myMap.getDouble().get(1)).isEqualTo(4);
-        assertThat(myMap.getDouble().get(4)).isEqualTo(10);
+        Integer[] result = new Integer[]{2,4,6,8,10};
+        List<Integer> resultList = Arrays.asList(result);
+
+        assertThat(myMap.getDouble()).isEqualTo(resultList);
     }
 
     @Test
@@ -29,8 +31,10 @@ public class MyMapTest {
 
         MyMap myMap = new MyMap(list);
 
-        assertThat(myMap.getTriple().get(1)).isEqualTo(9);
-        assertThat(myMap.getTriple().get(4)).isEqualTo(27);
+        Integer[] result = new Integer[]{3,9,15,12,27};
+        List<Integer> resultList = Arrays.asList(result);
+
+        assertThat(myMap.getTriple()).isEqualTo(resultList);
     }
 
     @Test
@@ -41,8 +45,10 @@ public class MyMapTest {
 
         MyMap myMap = new MyMap(list);
 
-        assertThat(myMap.getFourFoldThenAddOne().get(1)).isEqualTo(9);
-        assertThat(myMap.getFourFoldThenAddOne().get(4)).isEqualTo(21);
+        Integer[] result = new Integer[]{5,9,13,17,21};
+        List<Integer> resultList = Arrays.asList(result);
+
+        assertThat(myMap.getFourFoldThenAddOne()).isEqualTo(resultList);
     }
 
     @Test
@@ -53,21 +59,24 @@ public class MyMapTest {
 
         MyMap myMap = new MyMap(list);
 
-        assertThat(myMap.mapLetter().get(1)).isEqualTo("b");
-        assertThat(myMap.mapLetter().get(4)).isEqualTo("e");
+        String[] result = new String[]{"a", "b", "c", "d", "e"};
+        List<String> resultList = Arrays.asList(result);
+
+        assertThat(myMap.mapLetter()).isEqualTo(resultList);
     }
 
     @Test
     public void should_map_to_letters(){
 
-        Integer[] array = new Integer[]{1,13,27,30,25,27};
+        Integer[] array = new Integer[]{1,13,27,30,52,53};
         List<Integer> list = Arrays.asList(array);
 
         MyMap myMap = new MyMap(list);
 
-        assertThat(myMap.mapLetters().get(1)).isEqualTo("b");
-        assertThat(myMap.mapLetters().get(2)).isEqualTo("aa");
-        assertThat(myMap.mapLetters().get(3)).isEqualTo("ad");
+        String[] result = new String[]{"a", "m", "aa", "ad", "az","ba"};
+        List<String> resultList = Arrays.asList(result);
+
+        assertThat(myMap.mapLetters()).isEqualTo(resultList);
     }
 
     @Test
@@ -78,8 +87,10 @@ public class MyMapTest {
 
         MyMap myMap = new MyMap(list);
 
-        assertThat(myMap.sortFromBig().get(0)).isEqualTo(5);
-        assertThat(myMap.sortFromBig().get(4)).isEqualTo(1);
+        Integer[] result = new Integer[]{5,4,3,2,1};
+        List<Integer> resultList = Arrays.asList(result);
+
+        assertThat(myMap.sortFromBig()).isEqualTo(resultList);
     }
 
     @Test
@@ -90,7 +101,10 @@ public class MyMapTest {
 
         MyMap myMap = new MyMap(list);
 
-        assertThat(myMap.sortFromSmall().get(0)).isEqualTo(1);
-        assertThat(myMap.sortFromSmall().get(4)).isEqualTo(5);
+
+        Integer[] result = new Integer[]{1,2,3,4,5};
+        List<Integer> resultList = Arrays.asList(result);
+
+        assertThat(myMap.sortFromSmall()).isEqualTo(resultList);
     }
 }
