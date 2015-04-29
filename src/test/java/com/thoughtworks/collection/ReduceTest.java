@@ -38,7 +38,7 @@ public class ReduceTest {
 
         Reduce reduce = new Reduce(arrayList);
 
-        assertThat(reduce.getMaximum()).isEqualTo(1);
+        assertThat(reduce.getMinimum()).isEqualTo(1);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class ReduceTest {
 
         Reduce reduce = new Reduce(arrayList);
 
-        assertThat(reduce.getMinimum()).isEqualTo(48.5);
+        assertThat(reduce.getAverage()).isEqualTo(48.5);
     }
 
     @Test
@@ -85,6 +85,7 @@ public class ReduceTest {
         Reduce reduce = new Reduce(arrayList);
         assertThat(reduce.getMedianInLinkList()).isEqualTo(8.5);
     }
+
     @Test
     public void should_return_first_even_element(){
         Integer[] array = new Integer[] {1,11,27,20,4,9,15};
@@ -100,7 +101,7 @@ public class ReduceTest {
         List<Integer> arrayList = Arrays.asList(array);
 
         Reduce reduce = new Reduce(arrayList);
-        assertThat(reduce.getIndexOfFirstEven()).isEqualTo(4);
+        assertThat(reduce.getIndexOfFirstEven()).isEqualTo(3);
     }
 
     @Test
@@ -109,7 +110,7 @@ public class ReduceTest {
         List<Integer> arrayList = Arrays.asList(array);
 
         Reduce reduce = new Reduce(arrayList);
-        assertThat(reduce.getFirstEven()).isEqualTo(4);
+        assertThat(reduce.getLastEven()).isEqualTo(15);
     }
 
     @Test
@@ -118,7 +119,7 @@ public class ReduceTest {
         List<Integer> arrayList = Arrays.asList(array);
 
         Reduce reduce = new Reduce(arrayList);
-        assertThat(reduce.getIndexOfFirstEven()).isEqualTo(7);
+        assertThat(reduce.getIndexOfLastEven()).isEqualTo(9);
     }
 
     @Test
@@ -126,7 +127,7 @@ public class ReduceTest {
         Integer[] array = new Integer[] {1,4,27,20,4,9,15,4,1,11};
         List<Integer> arrayList = Arrays.asList(array);
 
-        Integer[] differentArray = new Integer[] {1,4,27,20,4,9,15,4,1,11};
+        Integer[] differentArray = new Integer[] {1,4,27,20,4,9,15,4,1};
         List<Integer> differentArrayList = Arrays.asList(differentArray);
 
         Reduce reduce = new Reduce(arrayList);
