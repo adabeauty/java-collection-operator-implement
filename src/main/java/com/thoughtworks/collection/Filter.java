@@ -69,8 +69,29 @@ public class Filter {
         return map;
     }
 
-    public Integer[][] getDividedArray() {
-        throw new NotImplementedException();
+    public List<List<Integer>> getDividedArray() {
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        for(int i=0; i<array.size(); i++){
+            int num = 0;
+            for(int j=0; j<result.size(); j++){
+
+                if(result.get(j).contains(array.get(i))){
+                    result.get(j).add(array.get(i));
+                    break;
+                }else {
+                    num++;
+                }
+            }
+            if(num == result.size()){
+                List<Integer> sonList = new ArrayList<>();
+                sonList.add(array.get(i));
+                result.add(sonList);
+            }
+        }
+
+        return result;
     }
 
     public List<Integer> getCommonElements(List<Integer> firstList, List<Integer> secondList) {

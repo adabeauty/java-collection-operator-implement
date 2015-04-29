@@ -69,11 +69,13 @@ public class FilterTest {
         Integer[] array = new Integer[]{1,1,1,1,2,3,1,3,4,2,3,1,3,4,2};
         List<Integer> arrayList = Arrays.asList(array);
 
-        Integer[][] result = new Integer[][] {{1,1,1,1,1,1},{2,2,2},{3,3,3,3},{4,4}};
-
         Filter filter = new Filter(arrayList);
 
-        assertThat(filter.getDividedArray()).isEqualTo(result);
+        assertThat(filter.getDividedArray().size()).isEqualTo(4);
+        assertThat(filter.getDividedArray().get(0).size()).isEqualTo(6);
+        assertThat(filter.getDividedArray().get(1).size()).isEqualTo(3);
+        assertThat(filter.getDividedArray().get(2).size()).isEqualTo(4);
+        assertThat(filter.getDividedArray().get(3).size()).isEqualTo(2);
     }
 
     @Test
