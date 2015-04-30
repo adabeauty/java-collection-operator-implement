@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-
+import static org.mockito.Mockito.*;
 
 
 public class ReduceTest {
@@ -80,10 +80,16 @@ public class ReduceTest {
     public void should_get_element_in_middle_position_in_linkList(){
         Integer[] array = new Integer[] {1,4,6,2,3,10,9,8,11,2,19,30};
         List<Integer> arrayList = Arrays.asList(array);
-//        Iterator<Integer> arrayIterator = arrayList.iterator();
 
+        SingleLink<Integer> singleLink = mock(SingleLinkImplement.class);
+        when(singleLink.getNode(6)).thenReturn(10);
+        when(singleLink.getNode(7)).thenReturn(9);
+        
         Reduce reduce = new Reduce(arrayList);
-        assertThat(reduce.getMedianInLinkList()).isEqualTo(8.5);
+
+        assertThat(reduce.getMedianInLinkList(singleLink)).isEqualTo(9.5);
+        verify(singleLink, times(12)).addTailPointer(anyInt());
+
     }
 
     @Test
