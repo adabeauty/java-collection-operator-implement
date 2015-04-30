@@ -15,11 +15,25 @@ public class SingleLinkImplement <T> implements SingleLink<T> {
             this.data = data;
             this.next = null;
         }
-
     }
 
     private Node<T> header, tail;
-    private int size;
+    private int size = 0;
+
+    @Override
+    public T getHeaderData() {
+        return header.data;
+    }
+
+    @Override
+    public T getTailData() {
+        return tail.data;
+    }
+
+    @Override
+    public int size() {
+        return size;
+    }
 
     @Override
     public boolean isEmpty() {
@@ -28,7 +42,9 @@ public class SingleLinkImplement <T> implements SingleLink<T> {
 
     @Override
     public void addHeadPointer(T item) {
-        header = new Node<>(item);
+        Node<T> newNode = new Node<>(item);
+        newNode.next = header;
+        header = newNode;
         size += 1;
         if(tail == null){
             tail = header;
@@ -41,10 +57,10 @@ public class SingleLinkImplement <T> implements SingleLink<T> {
         if(!isEmpty()){
             tail.next = new Node<>(item);
             tail = tail.next;
-            size += 1;
         }else{
             tail = header = new Node<>(item);
         }
+        size += 1;
     }
 
     @Override
@@ -64,23 +80,22 @@ public class SingleLinkImplement <T> implements SingleLink<T> {
         if(isEmpty()){
             return false;
         }else{
-
             Node<T> current = header;
             Node<T> pre = null;
-            while (current != null) {
+
+            while (current.next != null) {
+
                 pre = current;
                 current = current.next;
-                if (current.next == null) {
-                    pre.next = null;
-                    tail = pre;
-                    size -= 1;
-                }
             }
+
+            pre.next = null;
+            tail = pre;
+            size -= 1;
 
             return true;
         }
     }
-
 
     @Override
     public T getNode(int index) {

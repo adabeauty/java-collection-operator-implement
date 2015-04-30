@@ -1,6 +1,9 @@
 package com.thoughtworks.collection;
 
 public interface SingleLink<T> {
+    public T getHeaderData();
+    public T getTailData();
+    public int size();
     public boolean isEmpty();
     public boolean deleteFirst();
     public boolean deleteLast();                //删除尾部元素；
