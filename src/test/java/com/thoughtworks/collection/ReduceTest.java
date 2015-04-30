@@ -84,7 +84,7 @@ public class ReduceTest {
         SingleLink<Integer> singleLink = mock(SingleLinkImplement.class);
         when(singleLink.getNode(6)).thenReturn(10);
         when(singleLink.getNode(7)).thenReturn(9);
-        
+
         Reduce reduce = new Reduce(arrayList);
 
         assertThat(reduce.getMedianInLinkList(singleLink)).isEqualTo(9.5);
